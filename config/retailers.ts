@@ -157,4 +157,5 @@ export const RETAILERS: Retailer[] = [
   swap("stevemadden", "Steve Madden", "https://www.stevemadden.co.uk", "high-street", "Shoes and bags", "Kurt Geiger, Schuh, Charles & Keith"),
   swap("publicdesire", "Public Desire", "https://www.publicdesire.com", "fast", "Trend shoes", "Schuh, Kurt Geiger, Charles & Keith"),
   swap("oneractive", "Oner Active", "https://uk.oneractive.com", "high-street", "Gym and activewear", "Sports Direct, Decathlon, JD Sports"),
+  swap("koi", "Koi Footwear", "https://www.koifootwear.com", "fast", "Chunky boots and platforms", "Office, Schuh"),
 ];

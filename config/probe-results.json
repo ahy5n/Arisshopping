@@ -606,12 +606,10 @@
     "at": "2026-10-16T23:33:08.433Z"
   },
   "office": {
-    "state": "page",
-    "origin": "https://www.office.co.uk",
-    "status": 200,
-    "at": "2026-10-17T00:02:05.879Z",
-    "searchUrl": "https://www.office.co.uk/view/search?search={q}",
-    "detail": "40 products (40 with pictures), e.g. Salomon XT-6 Trainers Black Coffee French Roast Vanilla Ice £165"
+    "state": "blocked",
+    "status": 403,
+    "detail": "HTTP 403",
+    "at": "2026-10-17T21:51:21.400Z"
   },
   "schuh": {
     "state": "blocked",
@@ -838,5 +836,13 @@
     "status": 200,
     "detail": "3 products, e.g. 90.00 GBP",
     "at": "2026-10-17T20:41:11.672Z"
+  },
+  "koi": {
+    "state": "shopify",
+    "origin": "https://www.koifootwear.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 120.00 GBP",
+    "at": "2026-10-17T21:51:47.398Z"
   }
 }
