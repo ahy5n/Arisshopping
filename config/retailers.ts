@@ -5,7 +5,7 @@ import type { Tier } from "../lib/types";
 
 export type Section =
   | "High street" | "Value" | "Department stores" | "Mid-range" | "Premium & designer"
-  | "Fast fashion" | "Activewear" | "Shoes, bags & lingerie" | "Resale";
+  | "Fast fashion" | "Activewear" | "Shoes, bags & lingerie" | "Resale" | "Replacements";
 
 export type Retailer = {
   id: string;
@@ -15,9 +15,12 @@ export type Retailer = {
   tier: Tier;
   section: Section;
   find: string;
+  /** For replacement shops: the blocked shops on the original list they stand in for */
+  replaces?: string;
 };
 
-const r = (id: string, name: string, site: string, tier: Tier, section: Section, find: string): Retailer => ({ id, name, site, tier, section, find });
+const r = (id: string, name: string, site: string, tier: Tier, section: Section, find: string, replaces?: string): Retailer => ({ id, name, site, tier, section, find, replaces });
+const swap = (id: string, name: string, site: string, tier: Tier, find: string, replaces: string) => r(id, name, site, tier, "Replacements", find, replaces);
 
 export const RETAILERS: Retailer[] = [
   r("asos", "ASOS", "https://www.asos.com", "high-street", "High street", "Huge multi-brand catalogue incl. own label"),
@@ -129,4 +132,28 @@ export const RETAILERS: Retailer[] = [
   r("ebay", "eBay UK", "https://www.ebay.co.uk", "resale", "Resale", "New and pre-loved"),
   r("vestiaire", "Vestiaire Collective", "https://www.vestiairecollective.com", "resale", "Resale", "Pre-loved designer"),
   r("hewi", "Hardly Ever Worn It", "https://www.hardlyeverwornit.com", "resale", "Resale", "Pre-loved luxury"),
+
+  // Similar shops standing in for ones that block automated requests
+  swap("debenhams", "Debenhams", "https://www.debenhams.com", "premium", "Huge multi-brand department store", "Selfridges, Very, Liberty, George, F&F"),
+  swap("karenmillen", "Karen Millen", "https://www.karenmillen.com", "mid", "Tailoring, occasion, workwear", "L.K.Bennett, Massimo Dutti"),
+  swap("wallis", "Wallis", "https://www.wallis.co.uk", "high-street", "Dresses, smart casual", "Monsoon-style, White Stuff"),
+  swap("dorothyperkins", "Dorothy Perkins", "https://www.dorothyperkins.com", "high-street", "Everyday high street", "New Look, George, F&F"),
+  swap("inthestyle", "In The Style", "https://www.inthestyle.com", "fast", "Trend-led, affordable", "Shein, New Look, H&M"),
+  swap("littlemistress", "Little Mistress", "https://www.littlemistress.com", "fast", "Occasion, going-out", "White Fox, Lipsy"),
+  swap("simmi", "Simmi", "https://www.simmi.com", "fast", "Going-out shoes and clothes", "Shein, Schuh"),
+  swap("mintvelvet", "Mint Velvet", "https://www.mintvelvet.co.uk", "mid", "Polished everyday", "Massimo Dutti, Hush, Joules"),
+  swap("toast", "Toast", "https://www.toa.st", "mid", "Considered, natural fabrics", "COS, Arket, Liberty"),
+  swap("albaray", "Albaray", "https://www.albaray.co.uk", "mid", "Quality basics", "Uniqlo, COS, Arket"),
+  swap("baukjen", "Baukjen", "https://www.baukjen.com", "mid", "Relaxed, sustainable", "Hush, White Stuff, Gap"),
+  swap("damsonmadder", "Damson Madder", "https://damsonmadder.com", "mid", "Playful prints, knits", "Reformation, Free People, Urban Outfitters"),
+  swap("sisterjane", "Sister Jane", "https://www.sisterjane.com", "mid", "Romantic, vintage-inspired", "Reformation, Sezane, Anthropologie"),
+  swap("hayleymenzies", "Hayley Menzies", "https://hayleymenzies.com", "mid", "Bold prints, knitwear", "Anthropologie, Free People"),
+  swap("oliviarubin", "Olivia Rubin", "https://www.oliviarubinlondon.com", "mid", "Feminine, occasion", "Reformation, Sezane"),
+  swap("spell", "Spell", "https://spell.co", "mid", "Boho dresses", "Free People, Anthropologie"),
+  swap("lucyandyak", "Lucy & Yak", "https://lucyandyak.com", "mid", "Colourful dungarees and casual", "Urban Outfitters, Gap, Weekday"),
+  swap("tala", "Tala", "https://www.wearetala.com", "high-street", "Activewear", "Lululemon, Adidas"),
+  swap("bluebella", "Bluebella", "https://www.bluebella.com", "high-street", "Lingerie", "Hunkemoller"),
+  swap("loungeunderwear", "Lounge Underwear", "https://loungeunderwear.com", "high-street", "Lingerie, loungewear", "Hunkemoller"),
+  swap("stevemadden", "Steve Madden", "https://www.stevemadden.co.uk", "high-street", "Shoes and bags", "Kurt Geiger, Schuh, Charles & Keith"),
+  swap("publicdesire", "Public Desire", "https://www.publicdesire.com", "fast", "Trend shoes", "Schuh, Kurt Geiger, Charles & Keith"),
 ];

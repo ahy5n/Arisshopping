@@ -1,3 +1,4 @@
+import { brandQuery } from "./brands";
 import { PRICE_CAP, SHADE_MAP } from "./catalogue";
 import type { Filters, Product, SortKey } from "./types";
 
@@ -14,6 +15,14 @@ export function formatGbp(n: number) {
 
 /** Share of the search words that appear in the title or brand: shops' own matching is loose. */
 function wordScore(p: Product, q: string) {
+  const bq = brandQuery(q);
+  if (bq) {
+    const isBrand = bq.brands.some((b) => b.toLowerCase() === p.brand.toLowerCase());
+    if (!isBrand) return 0;
+    if (!bq.rest.length) return 1;
+    const t = p.title.toLowerCase();
+    return 0.5 + (0.5 * bq.rest.filter((w) => t.includes(w)).length) / bq.rest.length;
+  }
   const words = q.toLowerCase().split(/\s+/).filter((w) => w.length > 1);
   if (!words.length) return 1;
   const hay = `${p.title} ${p.brand} ${p.colourRaw}`.toLowerCase();

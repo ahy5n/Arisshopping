@@ -148,7 +148,10 @@ function Shops() {
                         r.state === "live" ? "bg-tag" : r.state === "later" || r.state === "needs-key" ? "bg-accent/40" : "bg-line"
                       }`}
                     />
-                    <span className={r.state === "live" ? "text-ink" : "text-muted"}>{r.name}</span>
+                    <span className={r.state === "live" ? "text-ink" : "text-muted"}>
+                      {r.name}
+                      {r.replaces && <span className="block text-[11.5px] text-muted">instead of {r.replaces}</span>}
+                    </span>
                     <span className="ml-auto text-right text-[12px] text-muted" title={r.note}>
                       {STATE_LABEL[r.state]}
                     </span>

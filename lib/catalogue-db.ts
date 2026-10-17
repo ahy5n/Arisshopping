@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import type { DatabaseSync } from "node:sqlite";
+import { brandQuery } from "./brands";
 import type { Product } from "./types";
 
 // The product index: everything the nightly crawl has seen, searchable
@@ -151,6 +152,22 @@ function toProduct(r: Row, rank: number): Product {
 /** Full-text search over the index. Every word must match (prefixes allowed); best matches first. */
 export function searchIndex(q: string, limit = 400): Product[] {
   if (!indexAvailable()) return [];
+  // "H&M" and friends: search by exact brand, not by their single letters
+  const bq = brandQuery(q);
+  if (bq) {
+    const rows = open()
+      .prepare(
+        `select * from products where lower(brand) in (${bq.brands.map(() => "?").join(",")})
+         ${bq.rest.map(() => "and lower(title) like ?").join(" ")} limit ?`,
+      )
+      .all(...bq.brands.map((b) => b.toLowerCase()), ...bq.rest.map((w) => `%${w}%`), limit) as Row[];
+    const perShop = new Map<string, number>();
+    return rows.map((r) => {
+      const n = perShop.get(r.retailer_id) ?? 0;
+      perShop.set(r.retailer_id, n + 1);
+      return toProduct(r, n);
+    });
+  }
   const words = q.toLowerCase().match(/[\p{L}\p{N}]+/gu)?.filter((w) => w.length > 1) ?? [];
   if (!words.length) return [];
   const d = open();

@@ -33,7 +33,17 @@ type Hit = {
   source?: string;
 };
 
-type Opts = { id: string; name: string; tier: Tier; index: string; site: string };
+type Opts = {
+  id: string;
+  name: string;
+  tier: Tier;
+  index: string;
+  site: string;
+  /** Include marketplace sellers (Debenhams is mostly marketplace) */
+  marketplace?: boolean;
+};
+
+const BRAND_FIX: Record<string, string> = { KarenMillen: "Karen Millen", boohoo: "Boohoo", nastygal: "Nasty Gal" };
 
 function image(url: string) {
   // the shop's own image CDN resizes on request
@@ -48,7 +58,7 @@ export function toProduct(h: Hit, o: Opts, rank: number): Product {
   return {
     id: `${o.id}:${h.objectID}`,
     title: h.name.trim(),
-    brand: h.brand ?? o.name,
+    brand: h.brand ? (BRAND_FIX[h.brand] ?? h.brand) : o.name,
     category,
     colourRaw,
     colourFamily: toColourFamily(colourRaw),
@@ -97,7 +107,7 @@ export function boohooGroupAdapter(o: Opts): RetailerAdapter {
           if (!res.ok) throw new Error(`${o.id} ${res.status}`);
           const data = (await res.json()) as { hits: Hit[] };
           return data.hits
-            .filter((h) => h.name && h.slug && h.price && (!h.source || h.source === "BOOHOOGROUP"))
+            .filter((h) => h.name && h.slug && h.price && (o.marketplace || !h.source || h.source === "BOOHOOGROUP"))
             .slice(0, limit)
             .map((h, i) => toProduct(h, o, i));
         });

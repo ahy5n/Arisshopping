@@ -9,10 +9,14 @@ import { next, primark, reiss, tkmaxx, victoriassecret } from "./bloomreach-shop
 import asos from "./asos";
 import boohoo from "./boohoo";
 import coast from "./coast";
+import debenhams from "./debenhams";
+import dorothyperkins from "./dorothyperkins";
 import ebay, { ebayConfigured } from "./ebay";
 import ghost from "./ghost";
 import harrods from "./harrods";
+import karenmillen from "./karenmillen";
 import twentyfours from "./twentyfours";
+import wallis from "./wallis";
 import misspap from "./misspap";
 import nastygal from "./nastygal";
 import nike from "./nike";
@@ -45,7 +49,7 @@ function pageStores(): RetailerAdapter[] {
 }
 
 /** Hand-written adapters first; they win over anything generic with the same id. */
-const CUSTOM: RetailerAdapter[] = [boohoo, plt, nastygal, misspap, coast, oasis, flannels, houseoffraser, gymshark, end, zara, next, reiss, primark, asos, riverisland, ghost, tkmaxx, sweatybetty, vinted, nike, harrods, twentyfours, victoriassecret, ebay];
+const CUSTOM: RetailerAdapter[] = [boohoo, plt, nastygal, misspap, coast, oasis, flannels, houseoffraser, gymshark, end, zara, next, reiss, primark, asos, riverisland, ghost, tkmaxx, sweatybetty, vinted, nike, harrods, twentyfours, victoriassecret, debenhams, karenmillen, wallis, dorothyperkins, ebay];
 
 const generic = [...shopifyStores(), ...pageStores()];
 export const ADAPTERS: RetailerAdapter[] = [...CUSTOM, ...generic.filter((s) => !CUSTOM.some((c) => c.id === s.id))];

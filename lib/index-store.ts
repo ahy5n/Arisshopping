@@ -1,3 +1,4 @@
+import { brandQuery } from "./brands";
 import * as local from "./catalogue-db";
 import type { Product } from "./types";
 
@@ -65,9 +66,21 @@ function perShopRank(rows: Row[]) {
   });
 }
 
+const COLUMNS =
+  "id,retailer_id,retailer_name,external_id,url,title,brand,category,colour_raw,colour_family,price_gbp,was_price_gbp,sizes_in_stock,images,is_resale";
+
 export async function searchIndex(q: string, limit = 400): Promise<Product[]> {
   if (!usingSupabase) return local.searchIndex(q, limit);
   if (!q.trim()) return [];
+  // "H&M" and friends: search by exact brand, not by their single letters
+  const bq = brandQuery(q);
+  if (bq) {
+    const params = new URLSearchParams({ select: COLUMNS, brand: `in.(${bq.brands.map((b) => `"${b}"`).join(",")})`, limit: String(limit) });
+    if (bq.rest.length) params.set("and", `(${bq.rest.map((w) => `title.ilike.*${w}*`).join(",")})`);
+    const res = await fetch(`${URL_}/rest/v1/products?${params}`, { headers: AUTH, signal: AbortSignal.timeout(6000), cache: "no-store" });
+    if (!res.ok) throw new Error(`supabase brand search ${res.status}`);
+    return perShopRank((await res.json()) as Row[]);
+  }
   return perShopRank(await rpc<Row[]>("search_products", { q, lim: limit }));
 }
 
