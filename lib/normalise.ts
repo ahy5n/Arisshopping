@@ -65,7 +65,7 @@ export function toSize(raw: string, category: Category): string {
   }
   if (LETTERS.includes(s)) return s;
   const n = s.match(/^(\d{1,2})(?:\b|$)/);
-  return n ? n[1] : s;
+  return n ? String(parseInt(n[1], 10)) : s; // "08" → "8"
 }
 
 export function sortSizes(sizes: string[]) {

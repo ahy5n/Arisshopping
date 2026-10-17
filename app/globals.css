@@ -53,6 +53,20 @@ body::before {
 }
 :root[data-mode="dark"] body::before { mix-blend-mode: screen; opacity: 0.18; }
 
+/* The sort/filter bar rides just under the header and follows it when it tucks away on phones. */
+.sort-bar {
+  transition: transform 0.3s var(--ease-soft);
+}
+:root[data-header="hidden"] .sort-bar {
+  transform: translateY(calc(-1 * var(--header-h, 120px) + 1px + env(safe-area-inset-top)));
+}
+
+/* Phones: the paper grain is a full-screen blended layer that iOS Safari repaints on every
+   scroll frame, which makes scrolling stutter. It's a desktop nicety only. */
+@media (hover: none) and (pointer: coarse) {
+  body::before { display: none; }
+}
+
 .serif {
   font-family: var(--font-serif);
   font-variation-settings: "SOFT" 100, "WONK" 1;

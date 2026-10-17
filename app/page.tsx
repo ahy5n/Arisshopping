@@ -203,7 +203,7 @@ export default function SearchPage() {
 
             <ShopTicker shops={shops} />
 
-            <div className="sticky top-[calc(var(--header-h,120px)-1px)] z-20 -mx-4 mb-3 flex items-center gap-2 bg-bg/90 px-4 py-2.5 backdrop-blur-md md:static md:mx-0 md:bg-transparent md:px-0 md:backdrop-blur-none">
+            <div className="sort-bar sticky top-[calc(var(--header-h,120px)-1px)] z-20 -mx-4 mb-3 flex items-center gap-2 bg-bg/95 px-4 py-2.5 md:static md:mx-0 md:bg-transparent md:px-0 md:backdrop-blur-none">
               <button
                 onClick={() => setSheet(true)}
                 className="flex h-10 items-center gap-2 rounded-full border border-line bg-bg px-4 text-[14px] text-ink transition active:scale-95 md:hidden"
