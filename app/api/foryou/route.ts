@@ -66,8 +66,16 @@ export async function POST(req: Request) {
     if ((perShop.get(shop) ?? 0) >= 5 || (perBrand.get(brand) ?? 0) >= 4) continue;
     perShop.set(shop, (perShop.get(shop) ?? 0) + 1);
     perBrand.set(brand, (perBrand.get(brand) ?? 0) + 1);
-    picks.push({ ...p, rank: picks.length });
+    picks.push(p);
     if (picks.length >= 36) break;
   }
-  return Response.json({ picks });
+  // best first, but never the same shop twice in a row when there's another choice
+  const mixed: Pick[] = [];
+  const left = [...picks];
+  while (left.length) {
+    const last = mixed.at(-1)?.offers[0].retailerId;
+    const i = left.findIndex((p) => p.offers[0].retailerId !== last);
+    mixed.push(...left.splice(i < 0 ? 0 : i, 1));
+  }
+  return Response.json({ picks: mixed.map((p, i) => ({ ...p, rank: i })) });
 }
