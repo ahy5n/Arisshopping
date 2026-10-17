@@ -5,13 +5,17 @@ import type { RetailerAdapter } from "../lib/types";
 import { pageAdapter } from "./_page";
 import { shopifyAdapter } from "./_shopify";
 import { end, flannels, gymshark, houseoffraser } from "./algolia-shops";
+import { next, primark, reiss, tkmaxx } from "./bloomreach-shops";
+import asos from "./asos";
 import boohoo from "./boohoo";
 import coast from "./coast";
 import ebay, { ebayConfigured } from "./ebay";
+import ghost from "./ghost";
 import misspap from "./misspap";
 import nastygal from "./nastygal";
 import oasis from "./oasis";
 import plt from "./plt";
+import riverisland from "./riverisland";
 import zara from "./zara";
 
 type Probe = Record<string, { state: string; origin?: string; currency?: string; searchUrl?: string }>;
@@ -36,7 +40,7 @@ function pageStores(): RetailerAdapter[] {
 }
 
 /** Hand-written adapters first; they win over anything generic with the same id. */
-const CUSTOM: RetailerAdapter[] = [boohoo, plt, nastygal, misspap, coast, oasis, flannels, houseoffraser, gymshark, end, zara, ebay];
+const CUSTOM: RetailerAdapter[] = [boohoo, plt, nastygal, misspap, coast, oasis, flannels, houseoffraser, gymshark, end, zara, next, reiss, primark, asos, riverisland, ghost, tkmaxx, ebay];
 
 const generic = [...shopifyStores(), ...pageStores()];
 export const ADAPTERS: RetailerAdapter[] = [...CUSTOM, ...generic.filter((s) => !CUSTOM.some((c) => c.id === s.id))];
