@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* Palette values live in lib/palettes.ts and are inlined in <head>. */
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-tag: var(--tag);
+  --color-tag-ink: var(--tag-ink);
+  --color-on-accent: var(--on-accent);
+  --color-line: color-mix(in oklab, var(--ink) 12%, transparent);
+  --color-wash: color-mix(in oklab, var(--card) 55%, var(--bg));
+
+  --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-dm), ui-sans-serif, system-ui, sans-serif;
+  --font-hand: var(--font-caveat), "Bradley Hand", cursive;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  background: var(--bg);
+  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.5s var(--ease-soft), color 0.5s var(--ease-soft);
+}
+
+/* Paper. A whisper of grain so the cream doesn't look like a flat hex. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .4 0 0 0 0 .4 0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) body::before { mix-blend-mode: screen; opacity: 0.18; }
+}
+:root[data-mode="dark"] body::before { mix-blend-mode: screen; opacity: 0.18; }
+
+.serif {
+  font-family: var(--font-serif);
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+::selection { background: var(--accent); color: var(--on-accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Skeleton shimmer that doesn't look like a loading bar. */
+@keyframes breathe {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.breathe { animation: breathe 1.8s var(--ease-soft) infinite; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px) rotate(var(--tilt, 0deg)); }
+  to { opacity: 1; transform: translateY(0) rotate(var(--tilt, 0deg)); }
+}
+.rise { animation: rise 0.6s var(--ease-soft) both; }
+
+input[type="range"] { -webkit-appearance: none; appearance: none; background: transparent; pointer-events: none; }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; pointer-events: auto;
+  width: 26px; height: 26px; border-radius: 999px;
+  background: var(--bg); border: 2px solid var(--accent);
+  box-shadow: 0 2px 8px color-mix(in oklab, var(--ink) 18%, transparent);
+  cursor: grab;
+}
+input[type="range"]::-moz-range-thumb {
+  pointer-events: auto; width: 22px; height: 22px; border-radius: 999px;
+  background: var(--bg); border: 2px solid var(--accent); cursor: grab;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

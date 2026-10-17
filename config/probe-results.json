@@ -1,0 +1,678 @@
+{
+  "asos": {
+    "state": "reachable",
+    "origin": "https://www.asos.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:03.096Z"
+  },
+  "zara": {
+    "state": "reachable",
+    "origin": "https://www.zara.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:03.123Z"
+  },
+  "hm": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:03.025Z"
+  },
+  "mango": {
+    "state": "blocked",
+    "status": 429,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:03.051Z"
+  },
+  "riverisland": {
+    "state": "reachable",
+    "origin": "https://www.riverisland.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:54.600Z"
+  },
+  "newlook": {
+    "state": "reachable",
+    "origin": "https://www.newlook.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:03.126Z"
+  },
+  "next": {
+    "state": "blocked",
+    "origin": "https://www.next.co.uk",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "search page refused (HTTP 403)"
+  },
+  "ms": {
+    "state": "page",
+    "origin": "https://www.marksandspencer.com",
+    "status": 200,
+    "at": "2026-10-16T23:59:02.441Z",
+    "searchUrl": "https://www.marksandspencer.com/search?searchTerm={q}",
+    "detail": "40 products (40 with pictures), e.g. Mid Rise Barrel Jeans \u00a330"
+  },
+  "uo": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:03.052Z"
+  },
+  "bershka": {
+    "state": "reachable",
+    "origin": "https://www.bershka.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:05.014Z"
+  },
+  "pullandbear": {
+    "state": "reachable",
+    "origin": "https://www.pullandbear.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:05.017Z"
+  },
+  "stradivarius": {
+    "state": "reachable",
+    "origin": "https://www.stradivarius.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:05.021Z"
+  },
+  "primark": {
+    "state": "reachable",
+    "origin": "https://www.primark.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:05.024Z"
+  },
+  "uniqlo": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:03.052Z"
+  },
+  "gap": {
+    "state": "blocked",
+    "origin": "https://www.gap.co.uk",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "search page refused (HTTP 403)"
+  },
+  "weekday": {
+    "state": "blocked",
+    "origin": "https://www.weekday.com",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "search page refused (HTTP 403)"
+  },
+  "lipsy": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:03.053Z"
+  },
+  "monsoon": {
+    "state": "page",
+    "origin": "https://www.monsoon.co.uk",
+    "status": 200,
+    "at": "2026-10-16T23:48:20.081Z",
+    "searchUrl": "https://www.monsoon.co.uk/search?q={q}",
+    "detail": "40 products (40 with pictures), e.g. Elise Embroidered Check Print Midi Dress Black \u00a389"
+  },
+  "accessorize": {
+    "state": "page",
+    "origin": "https://www.accessorize.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:50.681Z",
+    "searchUrl": "https://www.accessorize.com/uk/search?q={q}",
+    "detail": "40 products (40 with pictures), e.g. Slouchy Knot Leather Shoulder Bag Black \u00a365"
+  },
+  "hollister": {
+    "state": "reachable",
+    "origin": "https://www.hollisterco.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:07.177Z"
+  },
+  "joules": {
+    "state": "blocked",
+    "origin": "https://www.joules.com",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "search page refused (HTTP 403)"
+  },
+  "fatface": {
+    "state": "blocked",
+    "origin": "https://www.fatface.com",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "search page refused (HTTP 403)"
+  },
+  "whitestuff": {
+    "state": "unreachable",
+    "detail": "fetch failed",
+    "at": "2026-10-16T23:33:03.054Z"
+  },
+  "matalan": {
+    "state": "reachable",
+    "origin": "https://www.matalan.co.uk",
+    "status": 200,
+    "at": "2026-10-16T23:33:03.054Z"
+  },
+  "george": {
+    "state": "blocked",
+    "status": 425,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:03.054Z"
+  },
+  "tu": {
+    "state": "page",
+    "origin": "https://tuclothing.sainsburys.co.uk",
+    "status": 200,
+    "at": "2026-10-16T23:48:22.699Z",
+    "searchUrl": "https://tuclothing.sainsburys.co.uk/search?q={q}",
+    "detail": "40 products (40 with pictures), e.g. SIMPLY BE Black Lace Skater Dress \u00a342"
+  },
+  "ff": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:04.632Z"
+  },
+  "tkmaxx": {
+    "state": "reachable",
+    "origin": "https://www.tkmaxx.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:09.340Z"
+  },
+  "selfridges": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:04.639Z"
+  },
+  "harrods": {
+    "state": "reachable",
+    "origin": "https://www.harrods.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:09.630Z"
+  },
+  "harveynichols": {
+    "state": "page",
+    "origin": "https://www.harveynichols.com",
+    "status": 200,
+    "at": "2026-10-16T23:58:58.260Z",
+    "searchUrl": "https://www.harveynichols.com/searchresults?descriptionfilter={q}",
+    "detail": "40 products (40 with pictures), e.g. Gucci GG2062SA Women\u2019s Black Round Sunglasses \u00a3365"
+  },
+  "liberty": {
+    "state": "unreachable",
+    "detail": "fetch failed",
+    "at": "2026-10-16T23:33:04.859Z"
+  },
+  "johnlewis": {
+    "state": "page",
+    "origin": "https://www.johnlewis.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:24.291Z",
+    "searchUrl": "https://www.johnlewis.com/search?search-term={q}",
+    "detail": "40 products (40 with pictures), e.g. Hobbs Rae Crepe Shift Dress, Black, Black \u00a3149"
+  },
+  "fenwick": {
+    "state": "shopify",
+    "origin": "https://www.fenwick.co.uk",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 165.00 GBP",
+    "at": "2026-10-16T23:33:35.822Z"
+  },
+  "houseoffraser": {
+    "state": "reachable",
+    "origin": "https://www.houseoffraser.co.uk",
+    "status": 200,
+    "at": "2026-10-16T23:32:11.227Z"
+  },
+  "flannels": {
+    "state": "reachable",
+    "origin": "https://www.flannels.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:11.266Z"
+  },
+  "very": {
+    "state": "blocked",
+    "origin": "https://www.very.co.uk",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "HTTP 403"
+  },
+  "cos": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:04.912Z"
+  },
+  "stories": {
+    "state": "page",
+    "origin": "https://www.stories.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:24.945Z",
+    "searchUrl": "https://www.stories.com/en-gb/search?q={q}",
+    "detail": "40 products (40 with pictures), e.g. Sculptural-Sleeve Knitted Mini Dress - Black - Still Life \u00a3109"
+  },
+  "arket": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:04.954Z"
+  },
+  "massimodutti": {
+    "state": "reachable",
+    "origin": "https://www.massimodutti.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:12.510Z"
+  },
+  "reformation": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:05.027Z"
+  },
+  "freepeople": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:05.058Z"
+  },
+  "anthropologie": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:06.033Z"
+  },
+  "whistles": {
+    "state": "page",
+    "origin": "https://www.whistles.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:24.795Z",
+    "searchUrl": "https://www.whistles.com/search?q={q}",
+    "detail": "40 products (40 with pictures), e.g. Navy Knit Hybrid Lace Trim Dress \u00a3189"
+  },
+  "reiss": {
+    "state": "reachable",
+    "origin": "https://www.reiss.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:14.109Z"
+  },
+  "hobbs": {
+    "state": "page",
+    "origin": "https://www.hobbs.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:25.480Z",
+    "searchUrl": "https://www.hobbs.com/search?q={q}",
+    "detail": "40 products (38 with pictures), e.g. Maura Check Belted Dress \u00a3179"
+  },
+  "jigsaw": {
+    "state": "shopify",
+    "origin": "https://www.jigsaw-online.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 50.00 GBP",
+    "at": "2026-10-16T23:33:35.849Z"
+  },
+  "phaseeight": {
+    "state": "page",
+    "origin": "https://www.phase-eight.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:25.330Z",
+    "searchUrl": "https://www.phase-eight.com/search?q={q}",
+    "detail": "40 products (29 with pictures), e.g. Candice Scallop Dress \u00a389"
+  },
+  "lkbennett": {
+    "state": "reachable",
+    "origin": "https://lkbennett.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:14.828Z"
+  },
+  "boden": {
+    "state": "shopify",
+    "origin": "https://www.boden.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 149.00 GBP",
+    "at": "2026-10-17T00:00:10.041Z"
+  },
+  "sezane": {
+    "state": "reachable",
+    "origin": "https://www.sezane.com",
+    "status": 200,
+    "at": "2026-10-16T23:33:06.611Z"
+  },
+  "rixo": {
+    "state": "shopify",
+    "origin": "https://www.rixo.co.uk",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 415.00 GBP",
+    "at": "2026-10-16T23:33:35.849Z"
+  },
+  "ghost": {
+    "state": "reachable",
+    "origin": "https://www.ghost.co.uk",
+    "status": 200,
+    "at": "2026-10-16T23:32:54.631Z"
+  },
+  "nfd": {
+    "state": "shopify",
+    "origin": "https://www.neverfullydressed.co.uk",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 69.00 GBP",
+    "at": "2026-10-16T23:33:35.850Z"
+  },
+  "kitri": {
+    "state": "shopify",
+    "origin": "https://www.kitristudio.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 50.00 GBP",
+    "at": "2026-10-16T23:33:35.850Z"
+  },
+  "hush": {
+    "state": "blocked",
+    "status": 429,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:06.834Z"
+  },
+  "meandem": {
+    "state": "page",
+    "origin": "https://www.meandem.com",
+    "status": 200,
+    "at": "2026-10-16T23:58:59.317Z",
+    "searchUrl": "https://www.meandem.com/search?q={q}",
+    "detail": "40 products (40 with pictures), e.g. Lace Crop Jacket \u00a3250"
+  },
+  "allsaints": {
+    "state": "blocked",
+    "origin": "https://www.allsaints.com",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "HTTP 403"
+  },
+  "sandro": {
+    "state": "page",
+    "origin": "https://uk.sandro-paris.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:28.415Z",
+    "searchUrl": "https://uk.sandro-paris.com/en/search?q={q}",
+    "detail": "32 products (32 with pictures), e.g. Wraparound dress \u00a3359"
+  },
+  "maje": {
+    "state": "page",
+    "origin": "https://uk.maje.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:28.898Z",
+    "searchUrl": "https://uk.maje.com/en/search?q={q}",
+    "detail": "32 products (32 with pictures), e.g. Short knit and taffeta dress \u00a3279"
+  },
+  "ganni": {
+    "state": "page",
+    "origin": "https://www.ganni.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:28.778Z",
+    "searchUrl": "https://www.ganni.com/en-gb/search?q={q}",
+    "detail": "29 products (29 with pictures), e.g. Dress in Black Crepe \u00a3345"
+  },
+  "nobodyschild": {
+    "state": "shopify",
+    "origin": "https://www.nobodyschild.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 99.00 GBP",
+    "at": "2026-10-16T23:33:35.851Z"
+  },
+  "netaporter": {
+    "state": "blocked",
+    "origin": "https://www.net-a-porter.com",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "HTTP 403"
+  },
+  "farfetch": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:06.878Z"
+  },
+  "mytheresa": {
+    "state": "page",
+    "origin": "https://www.mytheresa.com",
+    "status": 200,
+    "at": "2026-10-17T00:00:55.591Z",
+    "searchUrl": "https://www.mytheresa.com/en-gb/search?q={q}",
+    "detail": "20 products (20 with pictures), e.g. Lvcea 28mm stainless steel watch with diamonds \u00a36150"
+  },
+  "ssense": {
+    "state": "blocked",
+    "origin": "https://www.ssense.com",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "HTTP 403"
+  },
+  "browns": {
+    "state": "shopify",
+    "origin": "https://www.brownsfashion.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 204.00 GBP",
+    "at": "2026-10-16T23:33:35.851Z"
+  },
+  "end": {
+    "state": "reachable",
+    "origin": "https://www.endclothing.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:19.039Z"
+  },
+  "luisaviaroma": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:07.977Z"
+  },
+  "24s": {
+    "state": "reachable",
+    "origin": "https://www.24s.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:19.716Z"
+  },
+  "plt": {
+    "state": "reachable",
+    "origin": "https://www.prettylittlething.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:19.781Z"
+  },
+  "boohoo": {
+    "state": "reachable",
+    "origin": "https://www.boohoo.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:20.005Z"
+  },
+  "ohpolly": {
+    "state": "shopify",
+    "origin": "https://www.ohpolly.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 35.00 GBP",
+    "at": "2026-10-16T23:33:35.852Z"
+  },
+  "shein": {
+    "state": "reachable",
+    "origin": "https://www.shein.co.uk",
+    "status": 200,
+    "at": "2026-10-16T23:32:20.342Z"
+  },
+  "nastygal": {
+    "state": "reachable",
+    "origin": "https://www.nastygal.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:20.412Z"
+  },
+  "misspap": {
+    "state": "reachable",
+    "origin": "https://www.misspap.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:20.754Z"
+  },
+  "meshki": {
+    "state": "shopify",
+    "origin": "https://www.meshki.co.uk",
+    "currency": "unknown",
+    "status": 200,
+    "detail": "3 products, e.g. 165.00 unknown",
+    "at": "2026-10-16T23:33:37.627Z"
+  },
+  "whitefox": {
+    "state": "shopify",
+    "origin": "https://www.whitefoxboutique.com",
+    "currency": "USD",
+    "status": 200,
+    "detail": "3 products, e.g. 119.99 USD",
+    "at": "2026-10-16T23:33:37.665Z"
+  },
+  "motelrocks": {
+    "state": "shopify",
+    "origin": "https://www.motelrocks.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 40.00 GBP",
+    "at": "2026-10-16T23:33:37.669Z"
+  },
+  "clubl": {
+    "state": "shopify",
+    "origin": "https://www.clubllondon.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 88.00 GBP",
+    "at": "2026-10-17T00:01:41.474Z"
+  },
+  "princesspolly": {
+    "state": "shopify",
+    "origin": "https://www.princesspolly.co.uk",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 31.50 GBP",
+    "at": "2026-10-16T23:33:37.728Z"
+  },
+  "gymshark": {
+    "state": "reachable",
+    "origin": "https://www.gymshark.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:21.739Z"
+  },
+  "lululemon": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:08.415Z"
+  },
+  "sweatybetty": {
+    "state": "reachable",
+    "origin": "https://www.sweatybetty.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:21.781Z"
+  },
+  "adanola": {
+    "state": "shopify",
+    "origin": "https://www.adanola.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 52.00 GBP",
+    "at": "2026-10-16T23:33:37.737Z"
+  },
+  "nike": {
+    "state": "reachable",
+    "origin": "https://www.nike.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:22.033Z"
+  },
+  "adidas": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "HTTP 403",
+    "at": "2026-10-16T23:33:08.433Z"
+  },
+  "office": {
+    "state": "page",
+    "origin": "https://www.office.co.uk",
+    "status": 200,
+    "at": "2026-10-17T00:02:05.879Z",
+    "searchUrl": "https://www.office.co.uk/view/search?search={q}",
+    "detail": "40 products (40 with pictures), e.g. Salomon XT-6 Trainers Black Coffee French Roast Vanilla Ice \u00a3165"
+  },
+  "schuh": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:08.582Z"
+  },
+  "kurtgeiger": {
+    "state": "reachable",
+    "origin": "https://www.kurtgeiger.com",
+    "status": 200,
+    "at": "2026-10-16T23:32:23.344Z"
+  },
+  "dune": {
+    "state": "page",
+    "origin": "https://www.dunelondon.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:33.329Z",
+    "searchUrl": "https://www.dunelondon.com/search?q={q}",
+    "detail": "24 products (24 with pictures), e.g. Tayla - Black Suede \u00a3159"
+  },
+  "charleskeith": {
+    "state": "unreachable",
+    "status": 404,
+    "detail": "page not found, check the URL",
+    "at": "2026-10-16T23:33:37.751Z"
+  },
+  "hunkemoller": {
+    "state": "blocked",
+    "origin": "https://www.hunkemoller.co.uk",
+    "status": 200,
+    "at": "2026-10-17T00:02:20.853983Z",
+    "detail": "search page refused (HTTP 403)"
+  },
+  "bouxavenue": {
+    "state": "page",
+    "origin": "https://www.bouxavenue.com",
+    "status": 200,
+    "at": "2026-10-16T23:48:52.149Z",
+    "searchUrl": "https://www.bouxavenue.com/search?q={q}",
+    "detail": "24 products (24 with pictures), e.g. Mollie padded plunge bra \u00a330"
+  },
+  "vinted": {
+    "state": "reachable",
+    "origin": "https://www.vinted.co.uk",
+    "status": 200,
+    "at": "2026-10-16T23:32:24.535Z"
+  },
+  "depop": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:08.702Z"
+  },
+  "ebay": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "HTTP 403",
+    "at": "2026-10-16T23:33:09.551Z"
+  },
+  "vestiaire": {
+    "state": "blocked",
+    "status": 403,
+    "detail": "bot challenge page",
+    "at": "2026-10-16T23:33:09.963Z"
+  },
+  "hewi": {
+    "state": "shopify",
+    "origin": "https://www.hardlyeverwornit.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 65.00 GBP",
+    "at": "2026-10-16T23:33:37.822Z"
+  }
+}
