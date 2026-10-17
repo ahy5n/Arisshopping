@@ -119,7 +119,7 @@ export const RETAILERS: Retailer[] = [
   r("schuh", "Schuh", "https://www.schuh.co.uk", "high-street", "Shoes, bags & lingerie", "Shoes and trainers"),
   r("kurtgeiger", "Kurt Geiger", "https://www.kurtgeiger.com", "high-street", "Shoes, bags & lingerie", "Shoes and bags"),
   r("dune", "Dune London", "https://www.dunelondon.com", "high-street", "Shoes, bags & lingerie", "Shoes and bags"),
-  r("charleskeith", "Charles & Keith", "https://www.charleskeith.com/gb", "high-street", "Shoes, bags & lingerie", "Affordable bags and shoes"),
+  r("charleskeith", "Charles & Keith", "https://www.charleskeith.co.uk/gb", "high-street", "Shoes, bags & lingerie", "Affordable bags and shoes"),
   r("hunkemoller", "Hunkemöller", "https://www.hunkemoller.co.uk", "high-street", "Shoes, bags & lingerie", "Lingerie"),
   r("bouxavenue", "Boux Avenue", "https://www.bouxavenue.com", "high-street", "Shoes, bags & lingerie", "Lingerie, nightwear"),
 

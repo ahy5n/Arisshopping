@@ -55,6 +55,7 @@ export const SEARCH_PAGES: Record<string, string[]> = {
   hunkemoller: ["https://www.hunkemoller.co.uk/search?q={q}"],
   bouxavenue: ["https://www.bouxavenue.com/search?q={q}"],
   vinted: ["https://www.vinted.co.uk/catalog?search_text={q}"],
+  charleskeith: ["https://www.charleskeith.co.uk/gb/search?q={q}"],
 };
 
 /** Per-shop quirks for the page reader. */
@@ -62,7 +63,7 @@ const SFCC = { crawlSuffix: "&sz=200" }; // Salesforce Commerce Cloud: bigger pa
 
 export const PAGE_OPTIONS: Record<string, { pence?: boolean; priceKey?: string; linkPrefix?: string; crawlSuffix?: string }> = {
   monsoon: SFCC, accessorize: SFCC, whistles: SFCC, hobbs: SFCC, phaseeight: SFCC,
-  sandro: SFCC, maje: SFCC, ganni: SFCC, dune: SFCC, bouxavenue: SFCC,
+  sandro: SFCC, maje: SFCC, ganni: SFCC, dune: SFCC, bouxavenue: SFCC, charleskeith: SFCC,
   // price.discount is the current price, in pence; slugs live under /gb/en/women
   mytheresa: { pence: true, priceKey: "discount", linkPrefix: "https://www.mytheresa.com/gb/en/women" },
 };

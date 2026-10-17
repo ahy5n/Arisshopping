@@ -48,7 +48,7 @@
     "status": 200,
     "at": "2026-10-16T23:59:02.441Z",
     "searchUrl": "https://www.marksandspencer.com/search?searchTerm={q}",
-    "detail": "40 products (40 with pictures), e.g. Mid Rise Barrel Jeans \u00a330"
+    "detail": "40 products (40 with pictures), e.g. Mid Rise Barrel Jeans £30"
   },
   "uo": {
     "state": "blocked",
@@ -112,7 +112,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:20.081Z",
     "searchUrl": "https://www.monsoon.co.uk/search?q={q}",
-    "detail": "40 products (40 with pictures), e.g. Elise Embroidered Check Print Midi Dress Black \u00a389"
+    "detail": "40 products (40 with pictures), e.g. Elise Embroidered Check Print Midi Dress Black £89"
   },
   "accessorize": {
     "state": "page",
@@ -120,7 +120,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:50.681Z",
     "searchUrl": "https://www.accessorize.com/uk/search?q={q}",
-    "detail": "40 products (40 with pictures), e.g. Slouchy Knot Leather Shoulder Bag Black \u00a365"
+    "detail": "40 products (40 with pictures), e.g. Slouchy Knot Leather Shoulder Bag Black £65"
   },
   "hollister": {
     "state": "reachable",
@@ -148,10 +148,12 @@
     "at": "2026-10-16T23:33:03.054Z"
   },
   "matalan": {
-    "state": "reachable",
+    "state": "page",
     "origin": "https://www.matalan.co.uk",
     "status": 200,
-    "at": "2026-10-16T23:33:03.054Z"
+    "at": "2026-10-17T13:05:56.160Z",
+    "searchUrl": "https://www.matalan.co.uk/search/?q={q}",
+    "detail": "17 products (17 with pictures), e.g. Black Ribbed Mini Dress £2.8"
   },
   "george": {
     "state": "blocked",
@@ -165,7 +167,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:22.699Z",
     "searchUrl": "https://tuclothing.sainsburys.co.uk/search?q={q}",
-    "detail": "40 products (40 with pictures), e.g. SIMPLY BE Black Lace Skater Dress \u00a342"
+    "detail": "40 products (40 with pictures), e.g. SIMPLY BE Black Lace Skater Dress £42"
   },
   "ff": {
     "state": "blocked",
@@ -197,7 +199,7 @@
     "status": 200,
     "at": "2026-10-16T23:58:58.260Z",
     "searchUrl": "https://www.harveynichols.com/searchresults?descriptionfilter={q}",
-    "detail": "40 products (40 with pictures), e.g. Gucci GG2062SA Women\u2019s Black Round Sunglasses \u00a3365"
+    "detail": "40 products (40 with pictures), e.g. Gucci GG2062SA Women’s Black Round Sunglasses £365"
   },
   "liberty": {
     "state": "unreachable",
@@ -210,7 +212,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:24.291Z",
     "searchUrl": "https://www.johnlewis.com/search?search-term={q}",
-    "detail": "40 products (40 with pictures), e.g. Hobbs Rae Crepe Shift Dress, Black, Black \u00a3149"
+    "detail": "40 products (40 with pictures), e.g. Hobbs Rae Crepe Shift Dress, Black, Black £149"
   },
   "fenwick": {
     "state": "shopify",
@@ -251,7 +253,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:24.945Z",
     "searchUrl": "https://www.stories.com/en-gb/search?q={q}",
-    "detail": "40 products (40 with pictures), e.g. Sculptural-Sleeve Knitted Mini Dress - Black - Still Life \u00a3109"
+    "detail": "40 products (40 with pictures), e.g. Sculptural-Sleeve Knitted Mini Dress - Black - Still Life £109"
   },
   "arket": {
     "state": "blocked",
@@ -289,7 +291,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:24.795Z",
     "searchUrl": "https://www.whistles.com/search?q={q}",
-    "detail": "40 products (40 with pictures), e.g. Navy Knit Hybrid Lace Trim Dress \u00a3189"
+    "detail": "40 products (40 with pictures), e.g. Navy Knit Hybrid Lace Trim Dress £189"
   },
   "reiss": {
     "state": "reachable",
@@ -303,7 +305,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:25.480Z",
     "searchUrl": "https://www.hobbs.com/search?q={q}",
-    "detail": "40 products (38 with pictures), e.g. Maura Check Belted Dress \u00a3179"
+    "detail": "40 products (38 with pictures), e.g. Maura Check Belted Dress £179"
   },
   "jigsaw": {
     "state": "shopify",
@@ -319,7 +321,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:25.330Z",
     "searchUrl": "https://www.phase-eight.com/search?q={q}",
-    "detail": "40 products (29 with pictures), e.g. Candice Scallop Dress \u00a389"
+    "detail": "40 products (29 with pictures), e.g. Candice Scallop Dress £89"
   },
   "lkbennett": {
     "state": "reachable",
@@ -383,7 +385,7 @@
     "status": 200,
     "at": "2026-10-16T23:58:59.317Z",
     "searchUrl": "https://www.meandem.com/search?q={q}",
-    "detail": "40 products (40 with pictures), e.g. Lace Crop Jacket \u00a3250"
+    "detail": "40 products (40 with pictures), e.g. Lace Crop Jacket £250"
   },
   "allsaints": {
     "state": "blocked",
@@ -398,7 +400,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:28.415Z",
     "searchUrl": "https://uk.sandro-paris.com/en/search?q={q}",
-    "detail": "32 products (32 with pictures), e.g. Wraparound dress \u00a3359"
+    "detail": "32 products (32 with pictures), e.g. Wraparound dress £359"
   },
   "maje": {
     "state": "page",
@@ -406,7 +408,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:28.898Z",
     "searchUrl": "https://uk.maje.com/en/search?q={q}",
-    "detail": "32 products (32 with pictures), e.g. Short knit and taffeta dress \u00a3279"
+    "detail": "32 products (32 with pictures), e.g. Short knit and taffeta dress £279"
   },
   "ganni": {
     "state": "page",
@@ -414,7 +416,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:28.778Z",
     "searchUrl": "https://www.ganni.com/en-gb/search?q={q}",
-    "detail": "29 products (29 with pictures), e.g. Dress in Black Crepe \u00a3345"
+    "detail": "29 products (29 with pictures), e.g. Dress in Black Crepe £345"
   },
   "nobodyschild": {
     "state": "shopify",
@@ -443,7 +445,7 @@
     "status": 200,
     "at": "2026-10-17T00:00:55.591Z",
     "searchUrl": "https://www.mytheresa.com/en-gb/search?q={q}",
-    "detail": "20 products (20 with pictures), e.g. Lvcea 28mm stainless steel watch with diamonds \u00a36150"
+    "detail": "20 products (20 with pictures), e.g. Lvcea 28mm stainless steel watch with diamonds £6150"
   },
   "ssense": {
     "state": "blocked",
@@ -600,7 +602,7 @@
     "status": 200,
     "at": "2026-10-17T00:02:05.879Z",
     "searchUrl": "https://www.office.co.uk/view/search?search={q}",
-    "detail": "40 products (40 with pictures), e.g. Salomon XT-6 Trainers Black Coffee French Roast Vanilla Ice \u00a3165"
+    "detail": "40 products (40 with pictures), e.g. Salomon XT-6 Trainers Black Coffee French Roast Vanilla Ice £165"
   },
   "schuh": {
     "state": "blocked",
@@ -620,7 +622,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:33.329Z",
     "searchUrl": "https://www.dunelondon.com/search?q={q}",
-    "detail": "24 products (24 with pictures), e.g. Tayla - Black Suede \u00a3159"
+    "detail": "24 products (24 with pictures), e.g. Tayla - Black Suede £159"
   },
   "charleskeith": {
     "state": "unreachable",
@@ -641,7 +643,7 @@
     "status": 200,
     "at": "2026-10-16T23:48:52.149Z",
     "searchUrl": "https://www.bouxavenue.com/search?q={q}",
-    "detail": "24 products (24 with pictures), e.g. Mollie padded plunge bra \u00a330"
+    "detail": "24 products (24 with pictures), e.g. Mollie padded plunge bra £30"
   },
   "vinted": {
     "state": "reachable",

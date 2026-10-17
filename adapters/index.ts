@@ -13,9 +13,12 @@ import ebay, { ebayConfigured } from "./ebay";
 import ghost from "./ghost";
 import misspap from "./misspap";
 import nastygal from "./nastygal";
+import nike from "./nike";
 import oasis from "./oasis";
 import plt from "./plt";
 import riverisland from "./riverisland";
+import sweatybetty from "./sweatybetty";
+import vinted from "./vinted";
 import zara from "./zara";
 
 type Probe = Record<string, { state: string; origin?: string; currency?: string; searchUrl?: string }>;
@@ -40,7 +43,7 @@ function pageStores(): RetailerAdapter[] {
 }
 
 /** Hand-written adapters first; they win over anything generic with the same id. */
-const CUSTOM: RetailerAdapter[] = [boohoo, plt, nastygal, misspap, coast, oasis, flannels, houseoffraser, gymshark, end, zara, next, reiss, primark, asos, riverisland, ghost, tkmaxx, ebay];
+const CUSTOM: RetailerAdapter[] = [boohoo, plt, nastygal, misspap, coast, oasis, flannels, houseoffraser, gymshark, end, zara, next, reiss, primark, asos, riverisland, ghost, tkmaxx, sweatybetty, vinted, nike, ebay];
 
 const generic = [...shopifyStores(), ...pageStores()];
 export const ADAPTERS: RetailerAdapter[] = [...CUSTOM, ...generic.filter((s) => !CUSTOM.some((c) => c.id === s.id))];

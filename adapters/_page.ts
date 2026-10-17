@@ -179,8 +179,19 @@ function fromTiles($: CheerioAPI): Found[] {
     const t = $(e);
     return (t.find("img, source").length ? 1000 : 0) + (linkOf($, t) ? 500 : 0) + Math.min(t.text().length, 400);
   };
-  for (const el of $(ID_ATTRS.map((a) => `[${a}]`).join(",")).toArray()) {
-    const key = ID_ATTRS.map((a) => $(el).attr(a)).find(Boolean) ?? "";
+  // some shops (Matalan) put the id only inside a tracking JSON on the tile
+  const trackedId = (el: Element) => {
+    const raw = $(el).attr("data-product-tracking") ?? $(el).attr("data-tracking-product");
+    if (!raw) return undefined;
+    try {
+      const j = JSON.parse(raw) as Record<string, unknown>;
+      return String(j.sku ?? j.id ?? j.productId ?? j.externalId ?? "") || undefined;
+    } catch {
+      return undefined;
+    }
+  };
+  for (const el of $([...ID_ATTRS, "data-product-tracking", "data-tracking-product"].map((a) => `[${a}]`).join(",")).toArray()) {
+    const key = ID_ATTRS.map((a) => $(el).attr(a)).find(Boolean) ?? trackedId(el as Element) ?? "";
     if (!key || key.includes("{{")) continue;
     // the id also sits on wishlist buttons and swatches; climb to the element that looks like a whole tile
     let node: Element = el as Element;
@@ -375,7 +386,9 @@ export function debugPage(html: string) {
 
 export function parseSearchPage(html: string, o: PageOpts, base: string, max = MAX): Product[] {
   const $ = cheerio.load(html, { scriptingEnabled: false });
-  const usable = (fs: Found[]) => fs.filter((f) => f.title && f.price && f.price > 0 && f.url);
+  // children's and men's lines turn up in some shops' general search
+  const notForHer = /^(girls?|boys?|kids?|baby|babies|toddler|mens?|men's)\b/i;
+  const usable = (fs: Found[]) => fs.filter((f) => f.title && f.price && f.price > 0 && f.url && !notForHer.test(decode(f.title)));
   const found = [fromTiles($), fromJsonLd($), fromAppState($, o)]
     .map(usable)
     .sort((a, b) => b.length + b.filter((f) => f.image).length - (a.length + a.filter((f) => f.image).length))[0];
