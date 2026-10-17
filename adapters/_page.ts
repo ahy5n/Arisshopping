@@ -260,6 +260,43 @@ function fromJsonLd($: CheerioAPI): Found[] {
 
 // ---------- embedded app state ----------
 
+/**
+ * Rebuild a devalue payload (Nuxt 3): a flat array whose objects and arrays hold
+ * the indexes of their values. Wrappers like ["Reactive", i] are unwrapped.
+ */
+export function unflatten(flat: unknown): unknown {
+  if (!Array.isArray(flat)) return flat;
+  const done = new Map<number, unknown>();
+  const WRAPPERS = new Set(["Reactive", "ShallowReactive", "Ref", "ShallowRef", "EmptyRef", "EmptyShallowRef"]);
+  const at = (i: unknown, depth: number): unknown => {
+    if (typeof i !== "number" || i < 0 || i >= flat.length) return undefined;
+    if (done.has(i)) return done.get(i);
+    if (depth > 400) return undefined;
+    const v = flat[i];
+    if (Array.isArray(v)) {
+      if (typeof v[0] === "string" && WRAPPERS.has(v[0])) {
+        const inner = at(v[1], depth + 1);
+        done.set(i, inner);
+        return inner;
+      }
+      if (typeof v[0] === "string" && ["Date", "Set", "Map", "BigInt", "RegExp", "null"].includes(v[0])) return undefined;
+      const arr: unknown[] = [];
+      done.set(i, arr);
+      for (const x of v) arr.push(at(x, depth + 1));
+      return arr;
+    }
+    if (v && typeof v === "object") {
+      const obj: Record<string, unknown> = {};
+      done.set(i, obj);
+      for (const [k, x] of Object.entries(v)) obj[k] = at(x, depth + 1);
+      return obj;
+    }
+    done.set(i, v);
+    return v;
+  };
+  return at(0, 0);
+}
+
 const NAME = /^(name|title|productName|product_name|displayName|item_name)$/i;
 
 /** A string, or the first string inside a localised object like {"en-GB": "…"}. */
@@ -295,7 +332,9 @@ function fromAppState($: CheerioAPI, o?: Pick<PageOpts, "priceKey">): Found[] {
   };
   $('script[type="application/json"], script#__NEXT_DATA__').each((_, s) => {
     try {
-      visit(JSON.parse($(s).text()), 0);
+      const data = JSON.parse($(s).text());
+      // Nuxt 3 (__NUXT_DATA__) uses devalue: a flat array where values point at other indexes
+      visit($(s).attr("id") === "__NUXT_DATA__" || $(s).attr("data-nuxt-data") !== undefined ? unflatten(data) : data, 0);
     } catch {}
   });
   // window.__PRELOADED_STATE__ = {…}; and friends

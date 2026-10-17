@@ -11,6 +11,8 @@ import boohoo from "./boohoo";
 import coast from "./coast";
 import ebay, { ebayConfigured } from "./ebay";
 import ghost from "./ghost";
+import harrods from "./harrods";
+import twentyfours from "./twentyfours";
 import misspap from "./misspap";
 import nastygal from "./nastygal";
 import nike from "./nike";
@@ -43,10 +45,15 @@ function pageStores(): RetailerAdapter[] {
 }
 
 /** Hand-written adapters first; they win over anything generic with the same id. */
-const CUSTOM: RetailerAdapter[] = [boohoo, plt, nastygal, misspap, coast, oasis, flannels, houseoffraser, gymshark, end, zara, next, reiss, primark, asos, riverisland, ghost, tkmaxx, sweatybetty, vinted, nike, ebay];
+const CUSTOM: RetailerAdapter[] = [boohoo, plt, nastygal, misspap, coast, oasis, flannels, houseoffraser, gymshark, end, zara, next, reiss, primark, asos, riverisland, ghost, tkmaxx, sweatybetty, vinted, nike, harrods, twentyfours, ebay];
 
 const generic = [...shopifyStores(), ...pageStores()];
 export const ADAPTERS: RetailerAdapter[] = [...CUSTOM, ...generic.filter((s) => !CUSTOM.some((c) => c.id === s.id))];
+
+/** Shops the refresh crawl reads: everything live, plus catalogue-only shops (mode "indexed"). */
+export function crawlableAdapters() {
+  return ADAPTERS.filter((a) => (a.mode === "indexed" && a.crawl) || liveAdapters().includes(a));
+}
 
 /** Adapters that can actually run right now. */
 export function liveAdapters() {

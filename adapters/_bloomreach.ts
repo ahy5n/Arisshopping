@@ -56,25 +56,32 @@ export function bloomreachAdapter(o: Opts): RetailerAdapter {
       if (!q.trim()) return [];
       try {
         return await cached(`${o.id}:${limit}:${q.toLowerCase()}`, async () => {
-          const params = new URLSearchParams({
-            account_id: o.accountId,
-            domain_key: o.domainKey,
-            request_type: "search",
-            search_type: "keyword",
-            q,
-            rows: String(Math.min(limit, 200)),
-            start: "0",
-            fl: o.extraFields ? `${FIELDS},${o.extraFields}` : FIELDS,
-            url: o.site,
-            _br_uid_2: "aris-shopping",
-          });
-          if (o.fq) params.append("fq", o.fq);
-          if (o.viewId) params.append("view_id", o.viewId);
-          const res = await politeFetch(`https://core.dxpapi.com/api/v1/core/?${params}`, { headers: { accept: "application/json" } }, o.id);
-          if (!res.ok) throw new Error(`${o.id} ${res.status}`);
-          const data = (await res.json()) as { response?: { docs: Doc[] } };
+          // Bloomreach returns at most 200 rows a time; crawls ask for more, so page through
+          const docs: Doc[] = [];
+          for (let start = 0; start < limit; start += 200) {
+            const params = new URLSearchParams({
+              account_id: o.accountId,
+              domain_key: o.domainKey,
+              request_type: "search",
+              search_type: "keyword",
+              q,
+              rows: String(Math.min(limit - start, 200)),
+              start: String(start),
+              fl: o.extraFields ? `${FIELDS},${o.extraFields}` : FIELDS,
+              url: o.site,
+              _br_uid_2: "aris-shopping",
+            });
+            if (o.fq) params.append("fq", o.fq);
+            if (o.viewId) params.append("view_id", o.viewId);
+            const res = await politeFetch(`https://core.dxpapi.com/api/v1/core/?${params}`, { headers: { accept: "application/json" } }, o.id);
+            if (!res.ok) throw new Error(`${o.id} ${res.status}`);
+            const data = (await res.json()) as { response?: { docs: Doc[]; numFound?: number } };
+            const page = data.response?.docs ?? [];
+            docs.push(...page);
+            if (page.length < 200 || docs.length >= (data.response?.numFound ?? 0)) break;
+          }
           const k = o.pence ? 0.01 : 1;
-          return (data.response?.docs ?? [])
+          return docs
             .filter((d) => d.title && (d.sale_price ?? d.price))
             .slice(0, limit)
             .map((d, i): Product => {

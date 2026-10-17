@@ -30,10 +30,11 @@
     "at": "2026-10-16T23:32:54.600Z"
   },
   "newlook": {
-    "state": "reachable",
+    "state": "blocked",
     "origin": "https://www.newlook.com",
     "status": 200,
-    "at": "2026-10-16T23:32:03.126Z"
+    "at": "2026-10-17T17:38:06.626981Z",
+    "detail": "PerimeterX bot protection; products load only via its browser app"
   },
   "next": {
     "state": "blocked",
@@ -57,22 +58,25 @@
     "at": "2026-10-16T23:33:03.052Z"
   },
   "bershka": {
-    "state": "reachable",
+    "state": "blocked",
     "origin": "https://www.bershka.com",
     "status": 200,
-    "at": "2026-10-16T23:32:05.014Z"
+    "at": "2026-10-17T17:38:06.626981Z",
+    "detail": "search key only works on bershka.com; some stock via ASOS"
   },
   "pullandbear": {
-    "state": "reachable",
+    "state": "blocked",
     "origin": "https://www.pullandbear.com",
     "status": 200,
-    "at": "2026-10-16T23:32:05.017Z"
+    "at": "2026-10-17T17:38:06.626981Z",
+    "detail": "JavaScript-only site, search key locked to its own domain; some stock via ASOS"
   },
   "stradivarius": {
-    "state": "reachable",
+    "state": "blocked",
     "origin": "https://www.stradivarius.com",
     "status": 200,
-    "at": "2026-10-16T23:32:05.021Z"
+    "at": "2026-10-17T17:38:06.626981Z",
+    "detail": "JavaScript-only site, search key locked to its own domain; some stock via ASOS"
   },
   "primark": {
     "state": "reachable",
@@ -263,10 +267,11 @@
     "at": "2026-10-16T23:33:04.954Z"
   },
   "massimodutti": {
-    "state": "reachable",
+    "state": "blocked",
     "origin": "https://www.massimodutti.com",
     "status": 200,
-    "at": "2026-10-16T23:32:12.510Z"
+    "at": "2026-10-17T17:38:06.626981Z",
+    "detail": "JavaScript-only site, search key locked to its own domain"
   },
   "reformation": {
     "state": "blocked",
@@ -325,10 +330,11 @@
     "detail": "40 products (29 with pictures), e.g. Candice Scallop Dress \u00a389"
   },
   "lkbennett": {
-    "state": "reachable",
+    "state": "unreachable",
     "origin": "https://lkbennett.com",
     "status": 200,
-    "at": "2026-10-16T23:32:14.828Z"
+    "at": "2026-10-17T17:38:06.626981Z",
+    "detail": "its public store has no products published"
   },
   "boden": {
     "state": "shopify",
@@ -339,10 +345,11 @@
     "at": "2026-10-17T00:00:10.041Z"
   },
   "sezane": {
-    "state": "reachable",
+    "state": "blocked",
     "origin": "https://www.sezane.com",
     "status": 200,
-    "at": "2026-10-16T23:33:06.611Z"
+    "at": "2026-10-17T17:38:06.626981Z",
+    "detail": "search refuses requests (HTTP 403)"
   },
   "rixo": {
     "state": "shopify",
@@ -613,10 +620,11 @@
     "at": "2026-10-16T23:33:08.582Z"
   },
   "kurtgeiger": {
-    "state": "reachable",
+    "state": "blocked",
     "origin": "https://www.kurtgeiger.com",
     "status": 200,
-    "at": "2026-10-16T23:32:23.344Z"
+    "at": "2026-10-17T17:38:06.626981Z",
+    "detail": "category and search pages refuse requests (HTTP 403)"
   },
   "dune": {
     "state": "page",

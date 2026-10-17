@@ -9,17 +9,40 @@
  *   npx tsx scripts/crawl.ts               every live shop
  *   npx tsx scripts/crawl.ts rixo zara     just these
  */
-import { liveAdapters } from "../adapters";
+import { crawlableAdapters } from "../adapters";
 import { EMPTY_FILTERS } from "../lib/catalogue";
 import { indexStats, pruneStale, recordCrawl, upsertProducts } from "../lib/catalogue-db";
 import type { RetailerAdapter } from "../lib/types";
 
 /** What a women's wardrobe is made of, in the words shops use. */
 export const CRAWL_WORDS = [
-  "dress", "maxi dress", "midi dress", "mini dress", "top", "blouse", "shirt", "t-shirt", "corset", "bodysuit", "cami",
-  "knit", "jumper", "cardigan", "coat", "jacket", "blazer", "jeans", "trousers", "skirt", "shorts", "co-ord",
-  "jumpsuit", "leggings", "hoodie", "swimsuit", "bikini", "bra", "lingerie", "pyjamas", "boots", "heels", "trainers",
-  "sandals", "flats", "bag", "jewellery", "scarf", "belt", "sunglasses",
+  // dresses
+  "dress", "maxi dress", "midi dress", "mini dress", "slip dress", "wrap dress", "shirt dress", "bodycon dress",
+  "knitted dress", "satin dress", "lace dress", "sequin dress", "floral dress", "party dress", "wedding guest dress",
+  "summer dress", "jumper dress", "smock dress", "corset dress",
+  // tops
+  "top", "blouse", "shirt", "t-shirt", "tank top", "vest top", "cami", "corset", "bodysuit", "crop top", "halter top",
+  "bardot top", "polo shirt", "long sleeve top", "going out top", "tunic",
+  // knitwear & sweats
+  "knit", "jumper", "cardigan", "roll neck", "knitted vest", "hoodie", "sweatshirt", "fleece",
+  // outerwear
+  "coat", "jacket", "blazer", "trench coat", "puffer jacket", "denim jacket", "leather jacket", "wool coat",
+  "gilet", "bomber jacket", "parka", "cape",
+  // bottoms
+  "jeans", "wide leg jeans", "straight leg jeans", "skinny jeans", "barrel jeans", "flared jeans", "trousers",
+  "wide leg trousers", "tailored trousers", "cargo trousers", "joggers", "leggings", "shorts", "denim shorts",
+  "skirt", "midi skirt", "mini skirt", "maxi skirt", "denim skirt", "satin skirt", "pleated skirt", "skort",
+  // sets
+  "co-ord", "matching set", "jumpsuit", "playsuit", "suit",
+  // active, swim, lingerie, night
+  "sports bra", "gym leggings", "running", "yoga", "swimsuit", "bikini", "kaftan", "bra", "lingerie", "knickers",
+  "slip", "pyjamas", "nightdress", "robe", "loungewear",
+  // shoes
+  "boots", "ankle boots", "knee high boots", "heels", "mules", "sandals", "flats", "ballet flats", "loafers",
+  "trainers", "mary janes", "slippers", "wedges", "slingbacks",
+  // bags & accessories
+  "bag", "shoulder bag", "tote bag", "crossbody bag", "clutch", "backpack", "purse", "jewellery", "necklace",
+  "earrings", "bracelet", "ring", "scarf", "belt", "sunglasses", "hat", "beanie", "gloves", "hair clip", "socks", "tights",
 ];
 
 const PER_SHOP_MS = 18 * 60 * 1000; // keep the whole run inside ~20 minutes
@@ -59,7 +82,7 @@ async function crawlShop(a: RetailerAdapter) {
 
 async function main() {
   const only = process.argv.slice(2);
-  const shops = liveAdapters().filter((a) => !only.length || only.includes(a.id));
+  const shops = crawlableAdapters().filter((a) => !only.length || only.includes(a.id));
   const t0 = Date.now();
   console.log(`crawling ${shops.length} shops…`);
   await Promise.all(shops.map(crawlShop));
