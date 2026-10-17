@@ -591,7 +591,7 @@
     "currency": "GBP",
     "status": 200,
     "detail": "3 products, e.g. 52.00 GBP",
-    "at": "2026-10-16T23:33:37.737Z"
+    "at": "2026-10-17T20:41:11.641Z"
   },
   "nike": {
     "state": "reachable",
@@ -830,5 +830,13 @@
     "status": 200,
     "detail": "3 products, e.g. 35.00 GBP",
     "at": "2026-10-17T20:00:38.331Z"
+  },
+  "oneractive": {
+    "state": "shopify",
+    "origin": "https://uk.oneractive.com",
+    "currency": "GBP",
+    "status": 200,
+    "detail": "3 products, e.g. 90.00 GBP",
+    "at": "2026-10-17T20:41:11.672Z"
   }
 }
