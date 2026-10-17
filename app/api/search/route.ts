@@ -1,7 +1,7 @@
 import { liveAdapters } from "@/adapters";
 import { TIMEOUT_MS } from "@/adapters/http";
 import { EMPTY_FILTERS } from "@/lib/catalogue";
-import { searchIndex } from "@/lib/catalogue-db";
+import { searchIndex } from "@/lib/index-store";
 import type { Product } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -24,16 +24,16 @@ export async function GET(req: Request) {
       const send = (e: SearchEvent) => ctrl.enqueue(enc.encode(JSON.stringify(e) + "\n"));
       send({ type: "start", shops: adapters.map((a) => ({ id: a.id, name: a.name })) });
 
-      // the nightly index answers instantly; live shops then refresh prices and add anything new
-      try {
-        const indexed = searchIndex(q);
-        if (indexed.length) send({ type: "index", products: indexed });
-      } catch (e) {
-        console.warn("[index]", (e as Error).message);
-      }
+      // the nightly index usually answers first; live shops refresh prices and add anything new
+      const index = searchIndex(q)
+        .then((indexed) => {
+          if (indexed.length) send({ type: "index", products: indexed });
+        })
+        .catch((e) => console.warn("[index]", (e as Error).message));
 
-      await Promise.all(
-        adapters.map(async (a) => {
+      await Promise.all([
+        index,
+        ...adapters.map(async (a) => {
           const t0 = Date.now();
           // adapters never throw, but a hung one shouldn't hold the rest up
           const products = await Promise.race([
@@ -42,7 +42,7 @@ export async function GET(req: Request) {
           ]);
           send({ type: "shop", id: a.id, ok: products !== null && products.length > 0, ms: Date.now() - t0, products: products ?? [] });
         }),
-      );
+      ]);
       send({ type: "end" });
       ctrl.close();
     },

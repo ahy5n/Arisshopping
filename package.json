@@ -9,7 +9,9 @@
     "typecheck": "tsc --noEmit",
     "test:adapters": "tsx --test adapters/adapters.test.ts",
     "probe": "tsx scripts/probe-shops.ts",
-    "crawl": "tsx scripts/crawl.ts"
+    "crawl": "tsx scripts/crawl.ts",
+    "sync": "tsx scripts/sync-supabase.ts",
+    "nightly": "tsx scripts/crawl.ts && tsx scripts/sync-supabase.ts"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

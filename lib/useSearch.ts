@@ -52,7 +52,11 @@ export function useSearch(q: string) {
           if (!line.trim()) continue;
           const e = JSON.parse(line) as SearchEvent;
           if (e.type === "start") status = e.shops.map((s) => ({ ...s, state: "waiting", count: 0 }));
-          if (e.type === "index") acc = mergeBatch(acc, e.products);
+          if (e.type === "index") {
+            // the index is up to a day old: never let it overwrite a live result that got here first
+            const have = new Set(acc.flatMap((p) => [p.id, ...p.offers.map((o) => `${o.retailerId}:${o.externalId}`)]));
+            acc = mergeBatch(acc, e.products.filter((p) => !have.has(p.id)));
+          }
           if (e.type === "shop") {
             acc = mergeBatch(acc, e.products);
             status = status.map((s) => (s.id === e.id ? { ...s, state: e.ok ? "done" : "skipped", count: e.products.length } : s));
