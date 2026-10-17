@@ -12,7 +12,7 @@ import { displayTitle } from "@/lib/display";
 import { sizeLabel, sortSizes } from "@/lib/normalise";
 import { pin, recall } from "@/lib/product-cache";
 import { formatGbp } from "@/lib/search";
-import { useMySizes, useWishlist } from "@/lib/storage";
+import { noteViewed, useMySizes, useViewed, useWishlist } from "@/lib/storage";
 import type { Product } from "@/lib/types";
 
 export default function ItemPage() {
@@ -20,6 +20,7 @@ export default function ItemPage() {
   const id = decodeURIComponent(raw);
   const router = useRouter();
   const [wish] = useWishlist();
+  const [, setViewed] = useViewed();
   const [p, setP] = useState<Product | null | undefined>(undefined);
   const [similar, setSimilar] = useState<Product[] | null>(null);
 
@@ -48,6 +49,11 @@ export default function ItemPage() {
     // wishlist is only a fallback source; don't refetch when it changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
+  // what she opens quietly teaches the "picked for you" feed
+  useEffect(() => {
+    if (p) setViewed((list) => noteViewed(list, p));
+  }, [p?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

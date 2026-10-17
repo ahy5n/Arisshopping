@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Arrow, Squiggle } from "@/components/doodles";
 import { FilterPanel, FilterSheet } from "@/components/Filters";
+import { ForYou } from "@/components/ForYou";
 import { Header } from "@/components/Header";
 import { CardSkeleton, ProductCard } from "@/components/ProductCard";
 import { SearchBar } from "@/components/SearchBar";
@@ -200,6 +201,9 @@ export default function SearchPage() {
                   </div>
                 </section>
               )}
+
+            {!q && <ForYou />}
+            {!q && <h2 className="serif pt-2 text-[24px] italic leading-none text-ink/90">fresh in</h2>}
 
             <ShopTicker shops={shops} />
 

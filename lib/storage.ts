@@ -80,6 +80,13 @@ const NO_PRODUCTS: Product[] = [];
 /** Saved as full snapshots, so the wishlist works without re-searching. */
 export const useWishlist = () => useStored<Product[]>("wishlist-v2", NO_PRODUCTS);
 export const useMySizes = () => useStored<string[]>("sizes", EMPTY);
+/** Things she has opened, newest first; a lighter taste signal than hearts. */
+export const useViewed = () => useStored<Product[]>("viewed", NO_PRODUCTS);
+
+export function noteViewed(list: Product[], p: Product) {
+  const slim: Product = { ...p, description: undefined, rank: undefined, images: p.images.slice(0, 1) };
+  return [slim, ...list.filter((x) => x.id !== p.id)].slice(0, 15);
+}
 
 export type SavedSearch = { id: string; name: string; q: string; f: Filters; sort: SortKey; at: string };
 const NO_SAVED: SavedSearch[] = [];
