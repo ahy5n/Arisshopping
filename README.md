@@ -69,6 +69,26 @@ npx tsx scripts/probe-pages.ts # which shops the page reader can parse (config/s
 npx tsx scripts/fingerprint.ts # guess each shop's platform and search provider
 ```
 
+### Refreshing the catalogue (by hand)
+
+ASOS, Zara, John Lewis, Harvey Nichols, Mytheresa and & Other Stories turn away Vercel's servers but
+answer from home, so the live site gets them from the catalogue. To refresh it (prices, new stock),
+run this on the Mac, ideally a couple of times a week:
+
+```bash
+./scripts/refresh.sh        # crawls every shop, then uploads to Supabase; log in logs/refresh.log
+```
+
+macOS won't let scheduled background jobs into the Documents folder, so it isn't automatic.
+
+### Picked for you
+
+The home page learns from what Ari hearts (strong signal) and opens (weak signal): favourite
+categories, colours, brands, shops and price range (`lib/taste.ts`). `/api/foryou` gathers items
+similar to each heart plus more from her favourite brands, ranks them by fit, caps any one shop or
+brand, and never shows the same shop twice in a row. It all stays on her phone; only the item
+snapshots are sent when asking for picks.
+
 ### The catalogue index
 
 ```bash
