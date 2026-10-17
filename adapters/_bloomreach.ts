@@ -44,7 +44,10 @@ type Opts = {
 
 const FIELDS = "pid,title,brand,price,sale_price,thumb_image,url,sizes,colour,variants";
 const titleCase = (s: string) => (s === s.toLowerCase() ? s.replace(/\b\w/g, (c) => c.toUpperCase()) : s);
-const BRAND_NAMES: Record<string, string> = { friendslikethese: "Friends Like These", next: "Next", reiss: "Reiss", primark: "Primark" };
+const BRAND_NAMES: Record<string, string> = {
+  friendslikethese: "Friends Like These", next: "Next", reiss: "Reiss", primark: "Primark",
+  victoriassecret: "Victoria's Secret", victoriassecretpink: "Victoria's Secret PINK",
+};
 
 export function bloomreachAdapter(o: Opts): RetailerAdapter {
   return {

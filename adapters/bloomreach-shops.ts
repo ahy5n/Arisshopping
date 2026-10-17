@@ -48,3 +48,13 @@ export const tkmaxx = bloomreachAdapter({
   wasOf: (d) => Math.max(Number(d.rrp) || 0, Number(d.was_price) || 0) || undefined,
   link: (d) => `https://www.tkmaxx.com/uk/en${d.url}`,
 });
+
+/** Victoria's Secret UK is run by Next plc on the same platform (victoriassecret.com blocks requests). */
+export const victoriassecret = bloomreachAdapter({
+  id: "victoriassecret",
+  name: "Victoria's Secret",
+  tier: "high-street",
+  accountId: "6505",
+  domainKey: "victoriassecret_global",
+  site: "https://www.victoriassecret.co.uk",
+});
