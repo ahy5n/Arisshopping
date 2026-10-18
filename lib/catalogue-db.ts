@@ -1,4 +1,5 @@
 import { existsSync, mkdirSync } from "node:fs";
+import { notKids } from "./kids";
 import { dirname, resolve } from "node:path";
 import type { DatabaseSync } from "node:sqlite";
 import { brandQuery } from "./brands";
@@ -80,7 +81,8 @@ function open() {
 }
 
 /** Insert or refresh products; logs a price_history row whenever the price changes. */
-export function upsertProducts(items: Product[]) {
+export function upsertProducts(all: Product[]) {
+  const items = notKids(all);
   const d = open();
   const now = new Date().toISOString();
   const prev = d.prepare("select price_gbp from products where id = ?");

@@ -1,4 +1,5 @@
 import { liveAdapters } from "@/adapters";
+import { notKids } from "@/lib/kids";
 import { TIMEOUT_MS } from "@/adapters/http";
 import { EMPTY_FILTERS } from "@/lib/catalogue";
 import { searchIndex } from "@/lib/index-store";
@@ -27,6 +28,7 @@ export async function GET(req: Request) {
       // the nightly index usually answers first; live shops refresh prices and add anything new
       const index = searchIndex(q)
         .then((indexed) => {
+          indexed = notKids(indexed);
           if (indexed.length) send({ type: "index", products: indexed });
         })
         .catch((e) => console.warn("[index]", (e as Error).message));
@@ -40,7 +42,7 @@ export async function GET(req: Request) {
             a.search({ q, filters: EMPTY_FILTERS, sort: "relevance" }),
             new Promise<null>((r) => setTimeout(() => r(null), TIMEOUT_MS + 500)),
           ]);
-          send({ type: "shop", id: a.id, ok: products !== null && products.length > 0, ms: Date.now() - t0, products: products ?? [] });
+          send({ type: "shop", id: a.id, ok: products !== null && products.length > 0, ms: Date.now() - t0, products: notKids(products ?? []) });
         }),
       ]);
       send({ type: "end" });
